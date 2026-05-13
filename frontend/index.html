@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="side-panel" aria-label="Wellness tools">
+        <div class="brand-block">
+          <p class="eyebrow">Mental Wellness Assistant</p>
+          <h1>MindMate</h1>
+          <p class="intro">
+            A calm space for reflection, grounding, and practical emotional support.
+          </p>
+        </div>
+
+        <section class="check-in" aria-labelledby="check-in-title">
+          <div class="section-heading">
+            <h2 id="check-in-title">Mood Check-In</h2>
+            <span id="moodLabel">Steady</span>
+          </div>
+          <input id="moodRange" type="range" min="1" max="5" value="3" aria-label="Mood level" />
+          <div class="mood-scale" aria-hidden="true">
+            <span>Low</span>
+            <span>High</span>
+          </div>
+        </section>
+
+        <section class="register-card" aria-labelledby="register-title">
+          <h2 id="register-title">User Register</h2>
+          <form id="registerForm" class="register-form">
+            <label for="userName">Name</label>
+            <input id="userName" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+
+            <button type="submit">Save User</button>
+          </form>
+          <p id="registerStatus" class="status-text">Register to receive a wellness alert by email.</p>
+        </section>
+
+        <section class="quick-prompts" aria-labelledby="prompts-title">
+          <h2 id="prompts-title">Quick Starts</h2>
+          <button type="button" data-prompt="I feel anxious and need help calming down.">Calm down</button>
+          <button type="button" data-prompt="Help me reframe a stressful thought.">Reframe thought</button>
+          <button type="button" data-prompt="Guide me through a grounding exercise.">Grounding</button>
+          <button type="button" data-prompt="I need a small plan for the next 10 minutes.">Small plan</button>
+        </section>
+
+        <section class="support-note" aria-labelledby="support-title">
+          <h2 id="support-title">Immediate Support</h2>
+          <p>
+            If you might hurt yourself or someone else, call emergency services now. In the U.S. or Canada,
+            call or text 988.
+          </p>
+        </section>
+      </aside>
+
+      <section class="chat-panel" aria-label="Chat">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Private reflection</p>
+            <h2>How are you feeling?</h2>
+          </div>
+          <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle dark mode">DM</button>
+        </header>
+
+        <div id="chatMessages" class="messages" aria-live="polite">
+          <article class="message assistant">
+            <p>
+              Hi, I am MindMate. I am here to listen, help you slow things down, and suggest small next steps.
+            </p>
+          </article>
+        </div>
+
+        <form id="chatForm" class="composer">
+          <label class="sr-only" for="messageInput">Message</label>
+          <textarea
+            id="messageInput"
+            rows="2"
+            placeholder="Type what you are feeling..."
+            maxlength="900"
+            required
+          ></textarea>
+          <button id="sendButton" type="submit">Send</button>
+          <button id="alertButton" class="secondary-action" type="button">Email Alert</button>
+        </form>
+
+        <div id="alertPanel" class="alert-panel" hidden>
+          <div>
+            <p class="eyebrow">Wellness alert</p>
+            <h3 id="alertTitle">Precaution email ready</h3>
+          </div>
+          <p id="alertSummary"></p>
+          <pre id="alertPreview"></pre>
+          <a id="mailtoLink" href="#">Open Email App</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
